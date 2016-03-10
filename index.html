@@ -2,99 +2,31 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>时钟</title>
-	<style type="text/css">
-		body{background:black;}
-		#canvas{background:white;}
-	</style>
-	<script type="text/javascript">
-		window.onload=function(){
-			var can=document.getElementById('canvas');
-			var can_text=can.getContext('2d');
-
-			function zhuan(){
-				var x=200;
-				var y=200;
-				var r=150;
-
-				can_text.clearRect(0,0,can.width,can.height);
-
-				var date=new Date;
-				var hours=date.getHours();
-				var min=date.getMinutes();
-				var second=date.getSeconds();
-
-				// 60个刻度
-				can_text.lineWidth="2";
-				can_text.beginPath();
-				for (var i = 0; i <60; i++) {
-					can_text.moveTo(x,y);
-					can_text.arc(x,y,r,i*6*Math.PI/180,(i+1)*6*Math.PI/180,false);
-					
-				};
-				can_text.closePath();
-				can_text.stroke();
-				
-				// 中心白遮罩
-				can_text.fillStyle="white";
-				can_text.beginPath();
-				can_text.moveTo(x,y);	
-				can_text.arc(x,y,r*0.95,0,360*Math.PI/180,false);
-				can_text.closePath();
-				can_text.fill();
-
-				// 12个刻度
-				can_text.lineWidth="5";
-				can_text.beginPath();
-				for(var i=0;i<12;i++){
-					can_text.moveTo(x,y);
-					can_text.arc(x,y,r,i*30*Math.PI/180,(i+1)*30*Math.PI/180,false);
-				}
-				can_text.closePath();
-				can_text.stroke();
-
-				// 中心白遮罩
-				can_text.fillStyle="white";
-				can_text.beginPath();
-				can_text.moveTo(x,y);
-				can_text.arc(x,y,r*0.92,0,2*Math.PI,false);
-				can_text.closePath();
-				can_text.fill();
-
-				// 秒针
-				can_text.lineWidth="1";
-				can_text.fillStyle="#ccc";
-				can_text.beginPath();
-				can_text.moveTo(x,y);
-				can_text.arc(x,y,r*7/9,(-90+second*6)*Math.PI/180,(-90+second*6)*Math.PI/180,false);
-				can_text.closePath();
-				can_text.stroke();
-
-				// 分针
-				can_text.lineWidth="3";
-				can_text.fillStyle="#333";
-				can_text.beginPath();
-				can_text.moveTo(x,y);
-				can_text.arc(x,y,r*6/9,(-90+min*6)*Math.PI/180,(-90+min*6)*Math.PI/180,false);
-				can_text.closePath();
-				can_text.stroke();
-
-				// 时针
-				can_text.lineWidth="5";
-				can_text.fillStyle="black";
-				can_text.beginPath();
-				can_text.moveTo(x,y);
-				can_text.arc(x,y,r/2,(-90+hours*30+min/2)*Math.PI/180,(-90+hours*30+min/2)*Math.PI/180,false);
-				can_text.closePath();
-				can_text.stroke();						
-			}
-			
-			setInterval(zhuan,1000);
-			zhuan();
-		}
-	</script>
+	<title>百度前端技术学院-{翻滚吧小逗比}</title>
+	<link rel="stylesheet" href="./css/index.css">
+	<link rel="stylesheet" href="./css/nav.css">
+	<link href='http://api.youziku.com/webfont/CSS/56e11f77f629d80ab406121f' rel='stylesheet' type='text/css' />
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="./source/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<canvas id="canvas" width="500" height="500"></canvas>
+	<div class="menuHolder">
+		<div class="menuWindow">
+			<ul class="p1">
+				<li class="s1"><a href="#url">导航菜单</a>
+					<ul class="p2 a6">
+						<li class="s2"><a href="#"><span>队伍首页</span></a></li>
+						<li class="s2"><a href="./teamDoc.html"><span>队员简介</span></a></li>
+						<li class="s2"><a href="./about.html"><span>联系我们</span></a></li>
+						
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="title">
+		<span class="t1">百度前端技术学院</span>
+		<span class="t2">--翻滚吧小逗比</span>
+	</div>
 </body>
 </html>
