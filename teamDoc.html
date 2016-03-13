@@ -1,10 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height: 100%">
 <head>
 	<meta charset="UTF-8">
-	<title>翻滚吧小逗比-队员简介</title>
+	<title>Document</title>
+	<script language="JavaScript" type="text/javascript">
+		window.onresize=function(){  
+            window.location.reload();
+        }  
+		window.onload=function(){
+			var clientW=document.documentElement.clientWidth;
+			var clientH=document.documentElement.clientHeight;
+			var bg=document.getElementById('bg');
+			var img=document.getElementsByTagName('div');
+			var baidu=document.getElementById('baidu');
+			var speed=4;
+			var click_sta=true;
+			// alert(clientH);
+			bg.style.width=clientW+"px";
+			bg.style.height=clientH+"px";
+			// 2.2
+			// 7
+			//20
+			var img_width=parseInt(clientW/7.1);
+			var img_height=parseInt(clientH/2.2);
+			var img_mar=parseInt(img_width/20);
+
+			for(var i=0;i<img.length;i++){
+				img[i].style.width=img_width+"px";
+				img[i].style.height=img_height+"px";
+				img[i].style.left=(i+1)*img_width+(i-1)*img_mar+'px';
+				img[i].style.top=(clientH-img_height*2)/4+'px';
+				img[i].style.background="url('images/"+(i+1)+".jpg') no-repeat";
+				img[i].style.backgroundSize="100% 100%";
+				img[i].setAttribute('index',i);
+
+				img[i].onclick=function(){
+					zhuan(this,speed);
+				}
+			}
+			
+			baidu.style.width=img_width+"px";
+			baidu.style.height=img_height+"px";
+			baidu.style.left=3*img_width+1*img_mar+'px';
+			baidu.style.bottom=(clientH-img_height*2)/4+'px';
+			baidu.style.background="url('images/baidu.png') no-repeat";
+			baidu.style.backgroundSize="100% 100%";
+
+			function zhuan(obj,speed){
+				clearInterval(obj.timer);
+				if(obj.click_sta){
+					obj.click_sta=false;
+				}else{
+					obj.click_sta=true;
+				}
+				var sta=0;
+				var index=parseInt(obj.getAttribute("index"));
+				var img_width=parseInt(obj.style.width);
+				obj.timer=setInterval(function(){
+					var w=parseInt(obj.style.width);
+					var l=parseInt(obj.style.left);
+					if(sta==2){
+						clearInterval(obj.timer);
+					}
+					if(w<=speed){
+						speed*=-1;
+						obj.style.width=0;
+						if(obj.click_sta){
+							obj.style.background="url('images/"+(index+1)+".png') no-repeat";
+						}else{
+							obj.style.background="url('images/"+(index+1)+".jpg') no-repeat";
+						}
+						obj.style.backgroundSize="100% 100%";
+						sta=1;
+					}
+					if(w>=img_width-speed&&sta==1){
+						speed*=-1;
+						obj.style.width=img_width;
+						sta=2;
+					}
+					obj.style.width=w-speed+"px";
+					obj.style.left=l+speed/2+"px";
+				},10);
+			}
+		}	
+	</script>
+<style type="text/css">
+	*{margin:0;padding:0;}
+	#bg{overflow: hidden;background:url('./images/bg.jpg') no-repeat;background-size:100% 100%;}
+	.img{position: absolute;top:0px;left:0px;}
+</style>
 </head>
-<body>
-	队员简介
+	
+	
+<body id="bg" style="width:100%;height:100%;">
+	<div class="img"></div>
+	<div class="img"></div>
+	<div class="img"></div>
+	<div class="img"></div>
+	<div class="img"></div>
+	<a href="http://ife.baidu.com/" id="baidu" style="display:block;position:absolute;"></a>
 </body>
 </html>
+<!-- i-r -->
+<!-- i-r+i+r -->
+<!-- i-r+i+r+i+r -->
+
+<!-- i*i+ -->
