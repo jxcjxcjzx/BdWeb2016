@@ -10,5 +10,5 @@
 	* @帅天晴同学
 	* @逗比安同学
 
-#### 任务1 Demo:http://evilm4n.github.io/BdWeb2016/BdTask2016/Task1/
-#### 任务2 Demo:http://evilm4n.github.io/BdWeb2016/BdTask2016/Task2/
+#### 任务1-HTML Demo:http://evilm4n.github.io/BdWeb2016/BdTask2016/Task1/
+#### 任务2-CSS  Demo:http://evilm4n.github.io/BdWeb2016/BdTask2016/Task2/
