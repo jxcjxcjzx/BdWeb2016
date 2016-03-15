@@ -11,3 +11,4 @@
 	* @逗比安同学
 
 #### 任务1 Demo:http://evilm4n.github.io/BdWeb2016/BdTask2016/Task1/
+#### 任务2 Demo:http://evilm4n.github.io/BdWeb2016/BdTask2016/Task2/
